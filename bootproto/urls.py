@@ -17,10 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from bootproto.core.views import main_view
+from bootproto.core.views import main_view, main_view3, main_view4
 
 urlpatterns = [
-    url(r'^bootstrap-prototype/main/$', main_view, name='main'),
+    url(r'^bootstrap-prototype/main1/$', main_view, name='main'),
     url(r'^bootstrap-prototype/main2/$', TemplateView.as_view(template_name='core/main2.html')),
+    url(r'^bootstrap-prototype/main3/$', main_view3, name='main3'),
+    url(r'^bootstrap-prototype/main4/$', main_view4, name='main4'),
     url(r'^admin/', include(admin.site.urls)),
 ]

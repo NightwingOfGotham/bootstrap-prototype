@@ -1,0 +1,93 @@
+{% load staticfiles %}
+{% load bootproto_tags %}
+
+{% if navbar.render_navbar %}
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  {% if navbar.number_of_navbar_items %}
+          <span class="sr-only">Toggle navigation</span>
+    {% for i in navbar.number_of_navbar_items|get_range %}
+          <span class="icon-bar"></span>
+    {% endfor %}
+  {% endif %}
+        </button>
+
+  {% if navbar.brand %}
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="{{ navbar.brand.image_link }}">
+        </a>
+  {% endif %}
+      </div>
+
+  {% if navbar.number_of_navbar_items %}
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    {% if navbar.left_navbar_items %}
+        <ul class="nav navbar-nav">
+      {% for item in navbar.left_navbar_items %}
+        {% if item.dropdown %}
+          <li class="dropdown {{ item.dropdown_class }}">
+            <a href="{{ item.dropdown_main_href }}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.dropdown_main_content }}</a>
+            <ul class="dropdown-menu">
+          {% for dropdown_option in item.dropdown_list_items %}
+              <li role="{{ dropdown_option.role }}" class="{{ dropdown_option.class }}">
+            {% if dropdown_option.role != 'separator' %}
+                <a href="{{ dropdown_option.href }}">{{ dropdown_option.content }}</a>
+            {% else %}
+                {{ dropdown_option.content }}
+            {% endif %}
+              </li>
+          {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="{{ item.class }}"><a href="{{ item.href }}">{{ item.content }}</a></li>
+        {% endif %}
+      {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if navbar.search_bar %}
+        <form class="navbar-form navbar-right" role="search" method="{{ navbar.search_bar.form_method }}" action="{{ navbar.search_bar.form_action }}">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{ navbar.search_bar.placeholder_text }}">
+          </div>
+          <button type="submit" class="btn btn-default">{{ navbar.search_bar.submit_button_text }}</button>
+        </form>
+    {% endif %}
+
+    {% if navbar.right_navbar_items %}
+        <ul class="nav navbar-nav navbar-right">
+      {% for item in navbar.right_navbar_items %}
+        {% if item.dropdown %}
+          <li class="dropdown {{ item.dropdown_class }}">
+            <a href="{{ item.dropdown_main_href }}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.dropdown_main_content }}</a>
+            <ul class="dropdown-menu">
+          {% for dropdown_option in item.dropdown_list_items %}
+              <li role="{{ dropdown_option.role }}" class="{{ dropdown_option.class }}">
+            {% if dropdown_option.role != 'separator' %}
+                <a href="{{ dropdown_option.href }}">{{ dropdown_option.content }}</a>
+            {% else %}
+                {{ dropdown_option.content }}
+            {% endif %}
+              </li>
+          {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li class="{{ item.class }}"><a href="{{ item.href }}">{{ item.content }}</a></li>
+        {% endif %}
+      {% endfor %}
+        </ul>
+    {% endif %}
+
+      </div>
+  {% endif %}
+    </div>
+  </nav>
+
+{% endif %}

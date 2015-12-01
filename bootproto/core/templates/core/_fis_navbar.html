@@ -14,6 +14,9 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+{% block navbar-left %}
+<!-- Example left navbar
       <ul class="nav navbar-nav">
         <li><a href="#">FIS System Home</a></li>
         <li class="active"><a href="#">FB Date System <span class="sr-only">(current)</span></a></li>
@@ -30,12 +33,26 @@
           </ul>
         </li>
       </ul>
+-->
+
+      <ul class="nav navbar-nav"> <!-- TODO: This can be removed if there is no FIS system home page. -->
+        <li><a href="#">FIS System Home</a></li>
+      </ul>
+{% endblock navbar-left %}
+
+{% block navbar-search %}
+<!-- Example right navbar search
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search subsystem">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+-->
+{% endblock navbar-search %}
+
+{% block navbar-right %}
+<!-- Example right navbar
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Useful Link</a></li>
         <li class="dropdown">
@@ -49,6 +66,9 @@
           </ul>
         </li>
       </ul>
+-->
+{% endblock navbar-right %}
+
     </div>
   </div>
 </nav>
