@@ -35,10 +35,10 @@
             <ul class="dropdown-menu">
           {% for dropdown_option in item.dropdown_list_items %}
               <li role="{{ dropdown_option.role }}" class="{{ dropdown_option.class }}">
-            {% if dropdown_option.role != 'separator' %}
-                <a href="{{ dropdown_option.href }}">{{ dropdown_option.content }}</a>
-            {% else %}
+            {% if dropdown_option.role == 'separator' or dropdown_option.class == 'dropdown-header' %}
                 {{ dropdown_option.content }}
+            {% else %}
+                <a href="{{ dropdown_option.href }}">{{ dropdown_option.content }}</a>
             {% endif %}
               </li>
           {% endfor %}
@@ -49,15 +49,6 @@
         {% endif %}
       {% endfor %}
         </ul>
-    {% endif %}
-
-    {% if navbar.search_bar %}
-        <form class="navbar-form navbar-right" role="search" method="{{ navbar.search_bar.form_method }}" action="{{ navbar.search_bar.form_action }}">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="{{ navbar.search_bar.placeholder_text }}">
-          </div>
-          <button type="submit" class="btn btn-default">{{ navbar.search_bar.submit_button_text }}</button>
-        </form>
     {% endif %}
 
     {% if navbar.right_navbar_items %}

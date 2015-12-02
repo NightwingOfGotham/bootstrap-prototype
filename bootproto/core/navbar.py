@@ -10,39 +10,39 @@ left_navbar = [
         'dropdown': False,
         'class': 'active',
         'href': '#',
-        'content': 'Hello!',
+        'content': 'Navbar active link',
     },
     {
         'dropdown': False,
         'class': '',
         'href': '#',
-        'content': 'Hello2',
+        'content': 'Navbar link',
     },
     {
         'dropdown': False,
         'class': '',
         'href': '#',
-        'content': 'Hello3',
+        'content': 'Navbar link',
     },
     {
         'dropdown': True,
         'dropdown_main_href': '#',
-        'dropdown_main_content': 'Hello4',
+        'dropdown_main_content': 'Dropdown menu',
         'class': '',
         'href': '#',
         'content': 'HelloDropdown',
         'dropdown_list_items': [
             {
                 'role': '',
-                'class': '',
+                'class': 'dropdown-header',
                 'href': '#',
-                'content': 'Hello5',
+                'content': 'Dropdown header',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello6',
+                'content': 'Dropdown item',
             },
             {
                 'role': 'separator',
@@ -54,25 +54,25 @@ left_navbar = [
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello7',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello8',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello9',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello10',
+                'content': 'Dropdown item',
             },
             {
                 'role': 'separator',
@@ -84,13 +84,13 @@ left_navbar = [
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello11',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello12',
+                'content': 'Dropdown item',
             },
         ]
     }
@@ -101,24 +101,24 @@ right_navbar = [
         'dropdown': False,
         'class': '',
         'href': '#',
-        'content': 'Hello!',
+        'content': 'Navbar link',
     },
     {
         'dropdown': False,
         'class': '',
         'href': '#',
-        'content': 'Hello2',
+        'content': 'Navbar link',
     },
     {
         'dropdown': False,
         'class': '',
         'href': '#',
-        'content': 'Hello3',
+        'content': 'Navbar link',
     },
     {
         'dropdown': True,
         'dropdown_main_href': '#',
-        'dropdown_main_content': 'Hello4',
+        'dropdown_main_content': 'Dropdown menu',
         'class': '',
         'href': '#',
         'content': 'HelloDropdown',
@@ -127,13 +127,13 @@ right_navbar = [
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello5',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello6',
+                'content': 'Dropdown item',
             },
             {
                 'role': 'separator',
@@ -145,25 +145,25 @@ right_navbar = [
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello7',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello8',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello9',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello10',
+                'content': 'Dropdown item',
             },
             {
                 'role': 'separator',
@@ -175,32 +175,24 @@ right_navbar = [
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello11',
+                'content': 'Dropdown item',
             },
             {
                 'role': '',
                 'class': '',
                 'href': '#',
-                'content': 'Hello12',
+                'content': 'Dropdown item',
             },
         ]
     }
 ]
 
-search_bar = {
-    'form_method': 'post',
-    'form_action': '',
-    'placeholder_text': 'Search subsystem...',
-    'submit_button_text': 'Search',
-}
-
-navbar_items = len(left_navbar) + len(right_navbar) + len(search_bar)
+number_of_navbar_items = len(left_navbar) + len(right_navbar)
 
 navbar = {
     'render_navbar': True,
     'brand': brand,
-    'number_of_navbar_items': navbar_items,
+    'number_of_navbar_items': number_of_navbar_items,
     'left_navbar_items': left_navbar,
     'right_navbar_items': right_navbar,
-    'search_bar': search_bar,
 }
